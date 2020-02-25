@@ -5,13 +5,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import ru.gvozdilin.bibl.dao.BooksDao;
 import ru.gvozdilin.bibl.dao.BooksDaoImpl;
 import ru.gvozdilin.bibl.service.BooksService;
 import ru.gvozdilin.bibl.service.BooksServiceImpl;
-import ru.gvozdilin.bibl.service.ReadersService;
-import ru.gvozdilin.bibl.service.ReadersServiceImpl;
 
 import javax.sql.DataSource;
 
@@ -47,9 +44,7 @@ public class SpringConfig {
        return new BooksServiceImpl();
    }
 
-   @Bean
-    public ReadersService getReadersService(){return new ReadersServiceImpl();
-   }
+
 
 
 

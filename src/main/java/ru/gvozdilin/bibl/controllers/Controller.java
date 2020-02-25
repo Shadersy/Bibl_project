@@ -2,18 +2,15 @@ package ru.gvozdilin.bibl.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import ru.gvozdilin.bibl.service.BooksService;
-import ru.gvozdilin.bibl.service.ReadersService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 
 @org.springframework.stereotype.Controller
 @RequestMapping("/")
@@ -21,18 +18,6 @@ public class Controller {
 
     @Autowired
 public BooksService booksService;
-
-
-    @Autowired
-    public ReadersService readersService;
-
-
-    @GetMapping("/readers")
-    public String getAllReaders(Model model)throws NullPointerException{
-        model.addAttribute("readers", readersService.findAll());
-    return "readers";
-    }
-
 
     @GetMapping("/books")
     public String getAllBooks(Model model, HttpServletRequest request) throws NullPointerException{
@@ -88,4 +73,9 @@ public BooksService booksService;
                 booksService.addBooks(name, author);
 return "redirect:/books";
     }
+
+
+
+
+
 }
