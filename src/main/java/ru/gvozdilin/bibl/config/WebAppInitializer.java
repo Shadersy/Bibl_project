@@ -28,7 +28,8 @@ public class WebAppInitializer implements WebApplicationInitializer {
         dispatcher.addMapping("/sortBooksByAuthor");
         dispatcher.addMapping("/greeting");
         dispatcher.addMapping("/readers");
-        dispatcher.addMapping("/principal");
+        dispatcher.addMapping("/login");
+        dispatcher.addMapping("/welcome");
 
     }
 

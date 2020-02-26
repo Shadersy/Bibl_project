@@ -1,5 +1,7 @@
 package ru.gvozdilin.bibl.dao;
 
+import ru.gvozdilin.bibl.service.BooksService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import ru.gvozdilin.bibl.entity.Books;
@@ -13,8 +15,8 @@ public class BooksDaoImpl implements BooksDao {
     public final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public BooksDaoImpl(JdbcTemplate jdbcTemplate){
-        this.jdbcTemplate=jdbcTemplate;
+    public BooksDaoImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
@@ -34,14 +36,11 @@ public class BooksDaoImpl implements BooksDao {
 
 
     public void deleteBooks(Integer id) {
-      jdbcTemplate.update("DELETE FROM books WHERE id = ?", id);
+        jdbcTemplate.update("DELETE FROM books WHERE id = ?", id);
     }
 
     @Override
     public void addBooks(String name, String author) {
         jdbcTemplate.update("INSERT INTO books (name, author) VALUES (?, ?)", name, author);
     }
-
-
-
 }
