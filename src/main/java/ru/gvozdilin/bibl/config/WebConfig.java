@@ -21,11 +21,8 @@ import javax.activation.DataSource;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "ru.gvozdilin.bibl.controllers")
+@ComponentScan(basePackages = "ru.gvozdilin.bibl")
 public class WebConfig extends WebMvcConfigurerAdapter {
-
-
-
 
     @Bean
     public ViewResolver getViewResolver(){
