@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.security.Principal;
 
 @RestController
-
-@RequestMapping("/principal")
+@RequestMapping("/")
 public class UserController {
 
     @GetMapping

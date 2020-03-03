@@ -17,6 +17,9 @@ public class Controller {
     @Autowired
 public BooksService booksService;
 
+//
+//    @Autowired
+//    MyUserDetailsService myUserDetailsService;
 
 
 
@@ -25,7 +28,6 @@ public BooksService booksService;
 
     @GetMapping("/books")
     public String getAllBooks(Model model, HttpServletRequest request) throws NullPointerException{
-//
 
         String sort = request.getParameter("type");
         System.out.println(sort);

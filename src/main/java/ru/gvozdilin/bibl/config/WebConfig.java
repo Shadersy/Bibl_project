@@ -25,7 +25,7 @@ import javax.activation.DataSource;
 public class WebConfig extends WebMvcConfigurerAdapter {
 
 
-    
+
 
     @Bean
     public ViewResolver getViewResolver(){
