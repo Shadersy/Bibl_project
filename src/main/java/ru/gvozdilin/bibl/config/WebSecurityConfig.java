@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import ru.gvozdilin.bibl.dao.UserDao;
 import ru.gvozdilin.bibl.entity.User;
+import ru.gvozdilin.bibl.service.MyUserDetailsService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -32,21 +33,14 @@ import java.util.Collection;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 CommonAuthenticationEntryPoint commonAuthenticationEntryPoint;
-CommonUserDetailsService commonUserDetailsService;
+MyUserDetailsService myUserDetailsService;
 
 
-@Autowired
-WebSecurityConfig(CommonAuthenticationEntryPoint commonAuthenticationEntryPoint, CommonUserDetailsService commonUserDetailsService){
-    this.commonAuthenticationEntryPoint=commonAuthenticationEntryPoint;
-    this.commonUserDetailsService=commonUserDetailsService;
-
-
-}
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 httpSecurity
                 .exceptionHandling().authenticationEntryPoint(commonAuthenticationEntryPoint)
                 .and()
-                .userDetailsService(commonUserDetailsService)
+                .userDetailsService(myUserDetailsService)
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/login").permitAll()
@@ -65,71 +59,7 @@ httpSecurity
 
         }
 
-@Component
-class CommonAuthenticationEntryPoint implements AuthenticationEntryPoint{
-    @Override
-    public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-        httpServletResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
-    }
-}
 
 
-@Component
-@Transactional
-class CommonUserDetailsService implements UserDetailsService {
-    UserDao userDao;
-    CommonUserDetailsService(UserDao userDao){
-      this.userDao=userDao;
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        if(s.isEmpty()){
-            throw new IllegalStateException("Login is empty");
-        }
-
-        return CommonUserDetailsService(userDao.getByLogin());
-    }
 
 
-    public class CommonUserDetails implements UserDetails{
-        User user;
-        CommonUserDetails(User user){
-            this.user=user;
-        }
-        @Override
-        public Collection<? extends GrantedAuthority> getAuthorities() {
-            return null;
-        }
-
-        @Override
-        public String getPassword() {
-            return user.getPassword();
-        }
-
-        @Override
-        public String getUsername() {
-            return user.getUsername();
-        }
-
-        @Override
-        public boolean isAccountNonExpired() {
-            return true;
-        }
-
-        @Override
-        public boolean isAccountNonLocked() {
-            return true;
-        }
-
-        @Override
-        public boolean isCredentialsNonExpired() {
-            return true;
-        }
-
-        @Override
-        public boolean isEnabled() {
-            return true;
-        }
-    }
-}

@@ -19,8 +19,10 @@ public class UserDaoImpl implements UserDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+
     @Override
-    public List<User> getByLogin() {
-        return jdbcTemplate.query("SELECT * FROM user WHERE username = ?", new UserMapper());
+    public User getByLogin(String username) {
+        String sql = "SELECT * FROM USER WHERE USERNAME = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{username}, new UserMapper());
     }
 }

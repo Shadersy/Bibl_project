@@ -7,20 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fb9e37a-ea25-4c60-8c78-e55d5bf27385" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/spring-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config/spring-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/controllers/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/gvozdilin/bibl/config/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/gvozdilin/bibl/controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/gvozdilin/bibl/controllers/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/gvozdilin/bibl/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/gvozdilin/bibl/controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-mvc-app1/WEB-INF/classes/ru/gvozdilin/bibl/controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-mvc-app1/WEB-INF/classes/ru/gvozdilin/bibl/controllers/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-mvc-app1/WEB-INF/classes/ru/gvozdilin/bibl/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-mvc-app1/WEB-INF/classes/ru/gvozdilin/bibl/controllers/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/CommonAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-mvc-app1/WEB-INF/classes/ru/gvozdilin/bibl/config/SecurityConfig.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -131,11 +122,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -143,8 +131,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="92" selection-start-line="23" selection-start-column="92" selection-end-line="23" selection-end-column="92" />
+            <state relative-caret-position="425">
+              <caret line="25" column="90" selection-start-line="25" selection-start-column="90" selection-end-line="25" selection-end-column="90" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#305#306#0" expanded="true" />
@@ -157,8 +145,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/mapper/UserMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            <state relative-caret-position="170">
+              <caret line="10" column="72" lean-forward="true" selection-start-line="10" selection-start-column="72" selection-end-line="10" selection-end-column="72" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/WebSecurityConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-182">
+              <caret line="42" column="56" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,15 +167,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/WebSecurityConfig.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/CommonAuthenticationEntryPoint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="90" column="39" lean-forward="true" selection-start-line="90" selection-start-column="39" selection-end-line="90" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3430#3431#0" expanded="true" />
-                <element signature="e#3464#3465#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="34">
+              <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -185,18 +180,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="423">
               <caret line="182" column="5" lean-forward="true" selection-start-line="180" selection-start-column="4" selection-end-line="182" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/SpringConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -276,9 +259,9 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/controllers/Controller.java" />
         <option value="$PROJECT_DIR$/config/spring-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/SecurityConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/mapper/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/WebSecurityConfig.java" />
       </list>
     </option>
@@ -347,70 +330,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="bibl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bibl_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bibl_project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bibl" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bibl_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bibl_project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bibl" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="WebSecurityConfig.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="Bibl_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bibl_project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bibl" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bibl_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bibl_project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bibl" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bibl_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bibl_project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bibl" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bibl_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bibl_project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bibl" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bibl_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bibl_project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bibl" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Bibl_project" type="b2602c69:ProjectViewProjectNode" />
@@ -606,18 +525,17 @@
       <updated>1582041063731</updated>
       <workItem from="1582041070427" duration="42408000" />
       <workItem from="1582283973095" duration="2585000" />
-      <workItem from="1582362168525" duration="50168000" />
+      <workItem from="1582362168525" duration="52760000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95161000" />
+    <option name="totallyTimeSpent" value="97753000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16641453" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33661118" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -627,7 +545,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4977307" weight="0.10445469" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.84568834" weight="0.44854072" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.84568834" visible="true" weight="0.44854072" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49924356" weight="0.39938557" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -638,7 +556,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.15431164" side_tool="true" weight="0.44854072" />
-      <window_info active="true" anchor="bottom" id="Messages" order="13" sideWeight="0.49092284" visible="true" weight="0.04608295" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49092284" weight="0.3655914" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="16" />
@@ -693,13 +611,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/readers.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -1065,16 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/SpringConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
@@ -1095,43 +996,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/BooksDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="33" column="76" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
-          <folding>
-            <element signature="e#464#465#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/5.2.1.RELEASE/spring-security-config-5.2.1.RELEASE.jar!/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="358" column="22" selection-start-line="358" selection-start-column="22" selection-end-line="358" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="92" selection-start-line="23" selection-start-column="92" selection-end-line="23" selection-end-column="92" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#305#306#0" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1145,16 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/5.2.1.RELEASE/spring-security-config-5.2.1.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
@@ -1162,15 +1020,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/WebSecurityConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/controllers/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="90" column="39" lean-forward="true" selection-start-line="90" selection-start-column="39" selection-end-line="90" selection-end-column="39" />
+        <state relative-caret-position="140">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3430#3431#0" expanded="true" />
-            <element signature="e#3464#3465#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="72" lean-forward="true" selection-start-line="10" selection-start-column="72" selection-end-line="10" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/BooksDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="33" column="76" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
+          <folding>
+            <element signature="e#464#465#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="90" selection-start-line="25" selection-start-column="90" selection-end-line="25" selection-end-column="90" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#305#306#0" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-182">
+          <caret line="42" column="56" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/gvozdilin/bibl/config/CommonAuthenticationEntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
         </state>
       </provider>
     </entry>

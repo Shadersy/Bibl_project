@@ -1,4 +1,4 @@
-package ru.gvozdilin.bibl.service;
+package ru.gvozdilin.bibl.dao;
 
 import ru.gvozdilin.bibl.entity.User;
 
