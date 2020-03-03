@@ -29,7 +29,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
         dispatcher.addMapping("/greeting");
         dispatcher.addMapping("/readers");
         dispatcher.addMapping("/login");
-        dispatcher.addMapping("/welcome");
+
 
     }
 

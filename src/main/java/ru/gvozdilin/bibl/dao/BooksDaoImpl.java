@@ -1,5 +1,6 @@
 package ru.gvozdilin.bibl.dao;
 
+import org.springframework.stereotype.Repository;
 import ru.gvozdilin.bibl.service.BooksService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import ru.gvozdilin.bibl.mapper.BooksMapper;
 
 import java.util.List;
 
+@Repository
 public class BooksDaoImpl implements BooksDao {
 
 
