@@ -2,19 +2,21 @@ package ru.gvozdilin.bibl.service;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import ru.gvozdilin.bibl.entity.ROLES;
 import ru.gvozdilin.bibl.entity.User;
 
 import java.util.Collection;
 
 public class MyUserPrincipal implements UserDetails {
-     private User user;
+    private User user;
 
-     public MyUserPrincipal(User user){
-         this.user=user;
-     }
+    public MyUserPrincipal(User user) {
+        this.user = user;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return null ;
     }
 
     @Override

@@ -8,10 +8,14 @@ import java.util.List;
 
 public interface BooksService {
     List<Books> findAll();
-    public void deleteBooks(Integer id);
-    public void addBooks(String name, String author);
-    public List<Books> sortByAuthor();
-    public List<Books> sortByName();
 
+    void editBooks(String name, Integer id);
 
+    void deleteBooks(Integer id);
+
+    void addBooks(String name, String author);
+
+    List<Books> sortByAuthor();
+
+    List<Books> sortByName();
 }

@@ -3,10 +3,10 @@ package ru.gvozdilin.bibl.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import ru.gvozdilin.bibl.service.BooksService;
-import ru.gvozdilin.bibl.service.MyUserDetailsService;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,80 +15,71 @@ import javax.servlet.http.HttpServletRequest;
 public class Controller {
 
     @Autowired
-public BooksService booksService;
+    public BooksService booksService;
 
 //
 //    @Autowired
 //    MyUserDetailsService myUserDetailsService;
 
 
-
-
-
-
     @GetMapping("/books")
-    public String getAllBooks(Model model, HttpServletRequest request) throws NullPointerException{
+    public String getAllBooks(Model model, HttpServletRequest request) throws NullPointerException {
 
         String sort = request.getParameter("type");
         System.out.println(sort);
 
-        if(sort==null){
+        if (sort == null) {
             model.addAttribute("books", booksService.findAll());
-        }
-        else
-        if(sort.equals("sortByAuthor")){
-           model.addAttribute("books", booksService.sortByAuthor());
+        } else if (sort.equals("sortByAuthor")) {
+            model.addAttribute("books", booksService.sortByAuthor());
             System.out.println("kek2");
-        }
-        else
-            if(sort.equals("sortByName"))
-        {
+        } else if (sort.equals("sortByName")) {
             System.out.println("kek1");
             model.addAttribute("books", booksService.sortByName());
         }
-
 
 
         return "books";
     }
 
 
-
-
-
-
-
     @PostMapping("/delete_book")
-    public String delete_book(HttpServletRequest servletRequest){
+    public String delete_book(HttpServletRequest servletRequest) {
 
 
         int nameForUtility = Integer.parseInt(servletRequest.getParameter("deleteSelect"));
         String buttonDelete = servletRequest.getParameter("delete");
         System.out.println(nameForUtility);
-         booksService.deleteBooks(nameForUtility);
+        booksService.deleteBooks(nameForUtility);
 
-    return "redirect:/books";
+        return "redirect:/books";
     }
 
 
+    @PostMapping("/edit_book")
+    public String edit_book(HttpServletRequest servletRequest){
+        int idForEdit = Integer.parseInt(servletRequest.getParameter("editSelect"));
+        System.out.println(idForEdit);
+
+        String nameOfBook = servletRequest.getParameter("nameOfBook");
+        System.out.println(nameOfBook);
+
+        booksService.editBooks(nameOfBook,idForEdit);
+    return "redirect:/books";
 
 
 
-
-
+    }
 
 
     @PostMapping("add_book")
-    public String add_book(HttpServletRequest servletRequest){
+    public String add_book(HttpServletRequest servletRequest) {
         String name = servletRequest.getParameter("name");
-                String author = servletRequest.getParameter("author");
+        String author = servletRequest.getParameter("author");
 
-                booksService.addBooks(name, author);
-return "redirect:/books";
+        booksService.addBooks(name, author);
+        return "redirect:/books";
     }
-
-
-
 
 
 }

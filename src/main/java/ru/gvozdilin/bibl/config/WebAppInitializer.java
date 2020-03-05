@@ -1,41 +1,31 @@
 package ru.gvozdilin.bibl.config;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.servlet.DispatcherServlet;
+
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import ru.gvozdilin.bibl.dao.UserRepository;
 
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
+public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-
-
-public class WebAppInitializer implements WebApplicationInitializer {
     @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
-        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.register(SpringConfig.class, WebConfig.class, WebSecurityConfig.class);
-        context.setServletContext(servletContext);
+    protected String[] getServletMappings() {
+        return new String[]{"/"};
+    }
 
-
-
-        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(context));
-        dispatcher.setLoadOnStartup(1);
-        dispatcher.addMapping("/books");
-        dispatcher.addMapping("/hello");
-        dispatcher.addMapping("/delete_book");
-        dispatcher.addMapping("/add_book");
-        dispatcher.addMapping("/sortBooksByAuthor");
-        dispatcher.addMapping("/greeting");
-        dispatcher.addMapping("/readers");
-        dispatcher.addMapping("/login");
-
-
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class[]{SpringConfig.class, WebConfig.class};
     }
 
 
+
+
+
+
+
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class[0];
+    }
 }
 
