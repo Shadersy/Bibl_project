@@ -1134,31 +1134,48 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="285" parent="280" name="PRIMARY">
+    <column id="285" parent="280" name="userId">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="286" parent="280" name="books___fk">
+      <ColNames>userId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="287" parent="280" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="286" parent="281" name="id">
+    <foreign-key id="288" parent="280" name="books___fk">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>bibliary</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <column id="289" parent="281" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="281" name="username">
+    <column id="290" parent="281" name="username">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="281" name="password">
+    <column id="291" parent="281" name="password">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="289" parent="281" name="PRIMARY">
+    <key id="292" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

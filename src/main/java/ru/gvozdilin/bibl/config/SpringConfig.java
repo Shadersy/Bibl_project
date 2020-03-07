@@ -11,8 +11,10 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 @Configuration
-@ImportResource("classpath:/WEB-INF/spring-security.xml")
+
+
 @ComponentScan(basePackages = "ru.gvozdilin.bibl")
+
 public class SpringConfig {
 
     @Bean

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import ru.gvozdilin.bibl.entity.User;
 import ru.gvozdilin.bibl.mapper.UserMapper;
 
+import java.util.List;
 
 
 @Repository
@@ -21,6 +22,11 @@ public class UserDaoImpl implements UserDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+
+    @Override
+    public List<User> findAll() {
+        return jdbcTemplate.query("SELECT * FROM user", new UserMapper());
+    }
 
     @Override
     public User getByLogin(String username) {

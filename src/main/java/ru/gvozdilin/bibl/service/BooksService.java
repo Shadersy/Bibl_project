@@ -10,6 +10,7 @@ public interface BooksService {
     List<Books> findAll();
 
     void editBooks(String name, Integer id);
+    void takeBooks(Integer booksId, Integer userId);
 
     void deleteBooks(Integer id);
 
@@ -18,4 +19,6 @@ public interface BooksService {
     List<Books> sortByAuthor();
 
     List<Books> sortByName();
+
+    public List<Books> getEmployeesByPage(int pageId, int total);
 }

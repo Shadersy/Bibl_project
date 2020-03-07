@@ -3,15 +3,19 @@ package ru.gvozdilin.bibl.entity;
 public class Books {
 
     private int id;
+    private int userId;
+
     private String name;
     private String author;
+
     public Books() {
 
     }
-    public Books(int id, String name, String author) {
+    public Books(int id, String name, String author, int userId) {
         this.id = id;
         this.name = name;
         this.author = author;
+        this.userId =userId;
     }
 
     public int getId() {
@@ -38,5 +42,11 @@ public class Books {
         return author;
     }
 
+   public int getUserId(){
+        return  userId;
+   }
 
+   public void setUserId(int userId){
+        this.userId=userId;
+   }
 }

@@ -26,6 +26,12 @@ public class BooksServiceImpl implements BooksService {
     }
 
     @Override
+    public void takeBooks(Integer booksId, Integer userId) {
+        booksDao.takeBooks(booksId, userId);
+    }
+
+
+    @Override
     public List<Books> sortByAuthor() {
         return booksDao.sortByAuthor();
     }
@@ -33,6 +39,11 @@ public class BooksServiceImpl implements BooksService {
     @Override
     public List<Books> sortByName() {
         return booksDao.sortByName();
+    }
+
+    @Override
+    public List<Books> getEmployeesByPage(int pageId, int total) {
+     return  booksDao.getEmployeesByPage(pageId,total);
     }
 
     @Override

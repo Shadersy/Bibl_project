@@ -13,10 +13,14 @@ public interface BooksDao {
 
     List<Books> sortByName();
 
+    void takeBooks(Integer booksId, Integer userId);
+
     void deleteBooks(Integer id);
 
     void editBooks(String name, Integer id);
 
     void addBooks(String name, String author);
+
+    public List<Books> getEmployeesByPage(int pageId, int total);
 
 }

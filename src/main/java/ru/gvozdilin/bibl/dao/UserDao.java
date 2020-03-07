@@ -2,7 +2,9 @@ package ru.gvozdilin.bibl.dao;
 
 import ru.gvozdilin.bibl.entity.User;
 
-public interface UserDao {
+import java.util.List;
 
+public interface UserDao {
+    List<User> findAll();
     public User getByLogin(String username);
 }

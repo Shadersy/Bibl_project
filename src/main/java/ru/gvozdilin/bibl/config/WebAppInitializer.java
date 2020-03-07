@@ -2,7 +2,6 @@ package ru.gvozdilin.bibl.config;
 
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-import ru.gvozdilin.bibl.dao.UserRepository;
 
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -14,7 +13,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{SpringConfig.class, WebConfig.class};
+        return new Class[]{SpringConfig.class, WebConfig.class, WebSecurityConfig.class};
     }
 
 
