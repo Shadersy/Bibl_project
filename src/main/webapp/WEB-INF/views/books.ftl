@@ -157,7 +157,22 @@
 
 
 
+<form>
+    <tr>
+        <th>Id</th>
+        <th>username</th>
+        <th>password</th>
+    </tr>
+    <#list users as user>
+        <tr>
+            <td>${user.id}</td>
+            <td>${user.username}</td>
+            <td>${user.password}</td>
+        </tr>
+    </#list>
+    </table>
 
+</form>
 
 
 

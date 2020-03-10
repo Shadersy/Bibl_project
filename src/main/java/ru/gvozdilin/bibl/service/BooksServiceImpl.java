@@ -41,10 +41,7 @@ public class BooksServiceImpl implements BooksService {
         return booksDao.sortByName();
     }
 
-    @Override
-    public List<Books> getEmployeesByPage(int pageId, int total) {
-     return  booksDao.getEmployeesByPage(pageId,total);
-    }
+
 
     @Override
     public void deleteBooks(Integer id) {

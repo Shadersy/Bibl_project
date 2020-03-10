@@ -58,20 +58,5 @@ public class BooksDaoImpl implements BooksDao {
         jdbcTemplate.update("INSERT INTO books (name, author) VALUES (?, ?)", name, author);
     }
 
-    @Override
-    public List<Books> getEmployeesByPage(int pageId, int total) {
-        String sql="SELECT * FROM BOOKS LIMIT" +(pageId-1)+","+total;
 
-        return jdbcTemplate.query(sql, new RowMapper<Books>() {
-            @Override
-            public Books mapRow(ResultSet resultSet, int i) throws SQLException {
-                Books books = new Books();
-                books.setId(resultSet.getInt(1));
-                books.setName(resultSet.getString(2));
-                books.setAutor(resultSet.getString(3));
-
-            return books;
-            }
-        });
     }
-}

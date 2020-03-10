@@ -1,10 +1,10 @@
 package ru.gvozdilin.bibl.entity;
 
-public enum ROLES {
+public enum Roles {
     ADMIN,
     USER;
 
-    ROLES(){
+    Roles(){
 
     }
 }

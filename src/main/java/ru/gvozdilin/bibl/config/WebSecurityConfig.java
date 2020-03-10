@@ -23,11 +23,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     MyUserDetailsService myUserDetailsService;
 
+    @Autowired
+    SecurityWebApplicationInitializer securityWebApplicationInitializer;
+
 
         @Override
         protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity .authorizeRequests()
-                .antMatchers("/securityNone")
+                .antMatchers("/login")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -35,6 +38,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .userDetailsService(myUserDetailsService);
+
+
+
 
 //                .exceptionHandling().authenticationEntryPoint(commonAuthenticationEntryPoint)
 //                .and()

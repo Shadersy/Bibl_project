@@ -2,10 +2,11 @@ package ru.gvozdilin.bibl.service;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ru.gvozdilin.bibl.entity.ROLES;
 import ru.gvozdilin.bibl.entity.User;
 
 import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 public class MyUserPrincipal implements UserDetails {
     private User user;
@@ -16,7 +17,8 @@ public class MyUserPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null ;
+        List<GrantedAuthority> list = new LinkedList<>();
+        return list ;
     }
 
     @Override
@@ -31,21 +33,21 @@ public class MyUserPrincipal implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }

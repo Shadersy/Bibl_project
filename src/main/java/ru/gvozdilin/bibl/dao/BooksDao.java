@@ -21,6 +21,6 @@ public interface BooksDao {
 
     void addBooks(String name, String author);
 
-    public List<Books> getEmployeesByPage(int pageId, int total);
+
 
 }

@@ -20,5 +20,5 @@ public interface BooksService {
 
     List<Books> sortByName();
 
-    public List<Books> getEmployeesByPage(int pageId, int total);
+
 }
