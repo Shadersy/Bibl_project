@@ -7,4 +7,6 @@ import java.util.List;
 public interface UserDao {
     List<User> findAll();
     public User getByLogin(String username);
+    List<User> getUsernameByUserId(Long id);
+
 }

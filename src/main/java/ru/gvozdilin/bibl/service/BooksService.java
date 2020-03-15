@@ -10,7 +10,7 @@ public interface BooksService {
     List<Books> findAll();
 
     void editBooks(String name, Integer id);
-    void takeBooks(Integer booksId, Integer userId);
+    void takeBooks(Integer booksId, Long userId);
 
     void deleteBooks(Integer id);
 
@@ -19,6 +19,11 @@ public interface BooksService {
     List<Books> sortByAuthor();
 
     List<Books> sortByName();
+    List<Books> takenBooks(Long id);
+    List<Books> showNotReservedBooks();
+    public List<Books> leftJoinBooksUser();
 
+    public void returnBooks(Long id);
 
+    public List<Books> getBooksSortedPaginated(String sort, int pageSize, int pageCount);
 }

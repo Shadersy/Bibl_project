@@ -6,6 +6,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.gvozdilin.bibl.dao.UserDaoImpl;
 import ru.gvozdilin.bibl.entity.Roles;
@@ -20,10 +21,15 @@ public class MyUserDetailsService implements UserDetailsService {
     @Autowired
     private UserDaoImpl userdao;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
 
     @Override
     public UserDetails loadUserByUsername(String username) {
         User user = userdao.getByLogin(username);
+
+        System.out.println(user.getUsername() + " " + user.getPassword());
 
         HashSet<GrantedAuthority> roles = new HashSet();
 

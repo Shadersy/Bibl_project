@@ -13,8 +13,6 @@ public class BooksServiceImpl implements BooksService {
     @Autowired
     public BooksDao booksDao;
 
-
-    //'ru.gvozdilin.bibl.service.BooksService' available: expected single matching bean but found 2: booksServiceImpl,getBooksService
     @Override
     public List<Books> findAll() {
         return booksDao.findAll();
@@ -26,7 +24,7 @@ public class BooksServiceImpl implements BooksService {
     }
 
     @Override
-    public void takeBooks(Integer booksId, Integer userId) {
+    public void takeBooks(Integer booksId, Long userId) {
         booksDao.takeBooks(booksId, userId);
     }
 
@@ -41,6 +39,31 @@ public class BooksServiceImpl implements BooksService {
         return booksDao.sortByName();
     }
 
+    @Override
+    public List<Books> takenBooks(Long id) {
+        return booksDao.takenBooks(id);
+    }
+
+    @Override
+    public List<Books> showNotReservedBooks() {
+        return booksDao.showNotReservedBooks();
+    }
+
+    @Override
+    public List<Books> leftJoinBooksUser() {
+        return booksDao.leftJoinBooksUser();
+    }
+
+
+    @Override
+    public void returnBooks(Long id) {
+        booksDao.returnBooks(id);
+    }
+
+    @Override
+    public List<Books> getBooksSortedPaginated(String sort, int pageSize, int pageCount) {
+        return booksDao.getBooksSortedPaginated(sort, pageSize, pageCount);
+    }
 
 
     @Override

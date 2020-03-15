@@ -1,14 +1,18 @@
 package ru.gvozdilin.bibl.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 import ru.gvozdilin.bibl.entity.User;
 
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+
 public class MyUserPrincipal implements UserDetails {
+
     private User user;
 
     public MyUserPrincipal(User user) {
@@ -29,6 +33,10 @@ public class MyUserPrincipal implements UserDetails {
     @Override
     public String getUsername() {
         return user.getUsername();
+    }
+
+    public Long getId() {
+        return user.getId();
     }
 
     @Override

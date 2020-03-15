@@ -52,26 +52,48 @@
         }
         .close:hover {background: #e6e6ff;}
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body>
+
 <h1>ONLINE LIBRARY</h1>
+
+<#list getUsernameByUserId as getUsernameByUserId>
+    Welcome, <td>${getUsernameByUserId.username}</td>.
+</#list>
+<br>
+<br>
+
+
+
 <table>
-    <tr>
-        <th>Id</th>
+    <thead>
         <th>Name</th>
         <th>Author</th>
-        <th>User_id</th>
-    </tr>
-    <#list books as books>
+        <th>RESERVED by</th>
+    </thead>
+    <tbody id="pagination">
+
+    </tbody>
+    <#-->
+    <#list leftJoinBooksUser as leftJoinBooksUser>
         <tr>
-            <td>${books.id}</td>
-            <td>${books.name}</td>
-            <td>${books.author}</td>
-            <td>${books.userId}</td>
+            <td>${leftJoinBooksUser.name}</td>
+            <td>${leftJoinBooksUser.author}</td>
+            <td>${leftJoinBooksUser.username!"not used"}</td>
         </tr>
     </#list>
+    </#-->
 </table>
+<button id="previousPage" type="button">Previous page</button>
+<button id="nextPage" type="button">Next page</button>
+
+
+
+<br>
+<br>
+
 
 
 <br>
@@ -80,11 +102,14 @@
             <option value="sortByAuthor">to sort by author</option>
             <option value="sortByName">to sort by name</option>
             </select>
-        <input type="submit" name="bsubmit" value="Send"/>
+        <input type="submit" name="bsubmit" value="Sort"/>
 </form>
 <br>
 
 <form method="post" action="/add_book">
+    <input type="hidden"
+           name="${_csrf.parameterName}"
+           value="${_csrf.token}"/>
     <input type="text" id="name" name="name" placeholder="Name" ></input>
     <input type="text" id="author" name="author" placeholder="Author" ></input>
     <button name="add" value="addBooks">Add book</button>
@@ -95,9 +120,12 @@
 <br>
 
 <form method="post" action="/delete_book">
-<select name="deleteSelect">
-    <#list books as book>go
-        <option value="${book.id}">${book.name}</option>
+    <input type="hidden"
+           name="${_csrf.parameterName}"
+           value="${_csrf.token}"/>
+    <select name="deleteSelect">
+    <#list find as leftJoinBooksUser>go
+        <option value="${leftJoinBooksUser.id}">${leftJoinBooksUser.name}</option>
     </#list>
 </select>
     <button name="buttonDelete" value="addBooks">Delete</button>
@@ -109,9 +137,12 @@
 
 
 <form method="post" action="/edit_book">
+    <input type="hidden"
+           name="${_csrf.parameterName}"
+           value="${_csrf.token}"/>
     <select name="editSelect">
-        <#list books as book>go
-            <option value="${book.id}">${book.name}</option>
+        <#list find as leftJoinBooksUser>go
+            <option value="${leftJoinBooksUser.id}">${leftJoinBooksUser.name}</option>
         </#list>
     </select>
     <button type="button" id="kek">Edit book</button>
@@ -136,45 +167,90 @@
 
 
 <form method="post" action="/take_book">
+    <input type="hidden"
+           name="${_csrf.parameterName}"
+           value="${_csrf.token}"/>
     <select name="take_book">
-        <#list books as book>go
-            <option value="${book.id}">${book.name}</option>
+        <#list notReservedBooks as notReservedBooks>go
+            <option value="${notReservedBooks.id}">${notReservedBooks.name}</option>
         </#list>
-    </select>
-
-    <select name="choose_user">
-        <#list users as user>
-            <option value="${user.id}">${user.username}</option>
-        </#list>
-
     </select>
 
     <button name="buttonTake" value="take_book">Take book</button>
 </form>
 
+<br>
 
-
-
-
-
-<form>
-    <tr>
-        <th>Id</th>
-        <th>username</th>
-        <th>password</th>
-    </tr>
-    <#list users as user>
-        <tr>
-            <td>${user.id}</td>
-            <td>${user.username}</td>
-            <td>${user.password}</td>
-        </tr>
-    </#list>
-    </table>
-
+<form method="post" action="/return_book">
+    <input type="hidden"
+           name="${_csrf.parameterName}"
+           value="${_csrf.token}"/>
+    <select name="returnSelect">
+        <#list returnedBooks as returnedBooks>go
+            <option value="${returnedBooks.id}">${returnedBooks.name}</option>
+        </#list>
+    </select>
+    <button name="buttonReturn" value="returnBooks">Return book</button>
 </form>
+<script type="text/javascript">
+    function updatePagination(shift = 0) {
 
+        var searchParams = new URLSearchParams(window.location.search)
+        if (!searchParams.has("pageSize")) {
+            searchParams.set("pageSize", '5');
+        }
+        if (!searchParams.has("pageNumber")) {
+            searchParams.set("pageNumber", '0');
+        }
 
+        if (parseInt(searchParams.get("pageNumber")) < 0) {
+            searchParams.set("pageNumber", '0');
+        }
 
+        if (parseInt(searchParams.get("pageSize")) < 1) {
+            searchParams.set("pageSize", '1');
+        }
+
+        $.ajax({
+            url: "/api/get-books",
+            data: {
+                type: searchParams.get("type"),
+                pageSize: parseInt(searchParams.get("pageSize")),
+                pageNumber: parseInt(searchParams.get("pageNumber")) + shift
+            }
+        }).done(function (data) {
+            history.pushState(
+                null,
+                '',
+                '/books?type=' + searchParams.get("type")
+                + "&pageSize=" + parseInt(searchParams.get("pageSize"))
+                + "&pageNumber=" + (parseInt(searchParams.get("pageNumber")) + shift)
+            );
+
+            data = JSON.parse(data);
+            $("#pagination").html('');
+
+            for (var i = 0; i < data.length; i++) {
+                $("#pagination").append("        <tr>\n" +
+                    "            <td>" + data[i].name + "</td>\n" +
+                    "            <td>" + data[i].author + "</td>\n" +
+                    "            <td>" + (data[i].username == 'null' ? '' : data[i].username) + "</td>\n" +
+                    "        </tr>");
+            }
+        });
+    }
+
+    $('#previousPage').click(function () {
+        updatePagination(-1);
+    });
+
+    $('#nextPage').click(function () {
+        updatePagination(1);
+    });
+
+    $(document).ready(function () {
+        updatePagination(0);
+    });
+</script>
 </body>
 </html>

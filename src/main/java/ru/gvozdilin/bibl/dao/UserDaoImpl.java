@@ -33,4 +33,9 @@ public class UserDaoImpl implements UserDao {
         String sql = "SELECT * FROM USER WHERE USERNAME = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{username}, new UserMapper());
     }
+
+    @Override
+    public List<User> getUsernameByUserId(Long id) {
+        return jdbcTemplate.query("SELECT * from user where id = ?", new Object[]{id}, new UserMapper());
+    }
 }
