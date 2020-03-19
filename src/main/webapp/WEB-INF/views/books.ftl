@@ -192,6 +192,7 @@
     </select>
     <button name="buttonReturn" value="returnBooks">Return book</button>
 </form>
+
 <script type="text/javascript">
     function updatePagination(shift = 0) {
 
