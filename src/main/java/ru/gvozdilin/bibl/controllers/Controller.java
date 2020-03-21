@@ -61,6 +61,7 @@ public class Controller {
 
     @PostMapping("/delete_book")
     public String delete_book(HttpServletRequest servletRequest) {
+
         int nameForUtility = Integer.parseInt(servletRequest.getParameter("deleteSelect"));
         System.out.println(nameForUtility);
         booksService.deleteBooks(nameForUtility);
@@ -78,6 +79,7 @@ public class Controller {
 
     @PostMapping("/edit_book")
     public String edit_book(HttpServletRequest servletRequest){
+        servletRequest.getContextPath();
         int idForEdit = Integer.parseInt(servletRequest.getParameter("editSelect"));
         System.out.println(idForEdit);
         String nameOfBook = servletRequest.getParameter("nameOfBook");

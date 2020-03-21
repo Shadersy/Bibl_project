@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>ONLINE-LIBRARY</title>
-
     <style>
         /* Basic styling */
         body {
@@ -17,7 +16,6 @@
             padding: 0 20px;
             width: 100%;
         }
-
 
 
         #okno {
@@ -67,6 +65,7 @@
 
 
 
+
 <table>
     <thead>
         <th>Name</th>
@@ -97,7 +96,7 @@
 
 
 <br>
-<form method="get" action="books">
+<form method="get" action="${rc.getContextPath()}/books">
         <select name="type">
             <option value="sortByAuthor">to sort by author</option>
             <option value="sortByName">to sort by name</option>
@@ -106,7 +105,7 @@
 </form>
 <br>
 
-<form method="post" action="/add_book">
+<form method="post" action="${rc.getContextPath()}/add_book">
     <input type="hidden"
            name="${_csrf.parameterName}"
            value="${_csrf.token}"/>
@@ -119,7 +118,7 @@
 
 <br>
 
-<form method="post" action="/delete_book">
+<form method="post" action="${rc.getContextPath()}/delete_book">
     <input type="hidden"
            name="${_csrf.parameterName}"
            value="${_csrf.token}"/>
@@ -136,7 +135,7 @@
 <br>
 
 
-<form method="post" action="/edit_book">
+<form method="post" action="${rc.getContextPath()}/edit_book">
     <input type="hidden"
            name="${_csrf.parameterName}"
            value="${_csrf.token}"/>
@@ -166,7 +165,7 @@
 <br>
 
 
-<form method="post" action="/take_book">
+<form method="post" action="${rc.getContextPath()}/take_book">
     <input type="hidden"
            name="${_csrf.parameterName}"
            value="${_csrf.token}"/>
@@ -181,7 +180,7 @@
 
 <br>
 
-<form method="post" action="/return_book">
+<form method="post" action="${rc.getContextPath()}/return_book">
     <input type="hidden"
            name="${_csrf.parameterName}"
            value="${_csrf.token}"/>
@@ -194,6 +193,7 @@
 </form>
 
 <script type="text/javascript">
+    var contextPath = "${rc.getContextPath()}";
     function updatePagination(shift = 0) {
 
         var searchParams = new URLSearchParams(window.location.search)
@@ -212,8 +212,10 @@
             searchParams.set("pageSize", '1');
         }
 
+
+
         $.ajax({
-            url: "/api/get-books",
+            url: contextPath + "/api/get-books",
             data: {
                 type: searchParams.get("type"),
                 pageSize: parseInt(searchParams.get("pageSize")),
@@ -223,7 +225,7 @@
             history.pushState(
                 null,
                 '',
-                '/books?type=' + searchParams.get("type")
+                contextPath + '/books?type=' + searchParams.get("type")
                 + "&pageSize=" + parseInt(searchParams.get("pageSize"))
                 + "&pageNumber=" + (parseInt(searchParams.get("pageNumber")) + shift)
             );
